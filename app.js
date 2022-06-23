@@ -6,7 +6,7 @@ const cookieParser = require('cookie-parser');
 const flash = require('connect-flash');
 
 const app = express();
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 3080;
 
 require('dotenv').config();
 
@@ -20,7 +20,7 @@ app.use(session({
     resave: true
 }));
 app.use(flash());
-app.use(fileUpload);
+app.use(fileUpload());
 
 app.set('layout', './layouts/main');
 app.set('view engine', 'ejs')
