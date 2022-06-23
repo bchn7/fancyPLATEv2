@@ -1,0 +1,67 @@
+<div class="px-4 py-5 my-5 text-center">
+    <h1 class="display-5 fw-bold">Dodaj swoj przepis</h1>
+    <div class="col-lg-6 mx-auto">
+      <p class="lead">Uzupelnij wszystkie pola</p>
+    </div>
+  </div>
+  
+  <div class="row justify-content-center">
+  
+    <% if(infoSubmitObj != '') { %>
+      <div class="col-8 alert alert-success" role="alert">
+        <%= infoSubmitObj %>
+      </div>
+    <% } %>
+  
+    <% if(infoErrorsObj != '') { %>
+      <div class="col-8 alert alert-danger" role="alert">
+        <%= infoErrorsObj[0].message %>
+      </div>
+    <% } %>
+  
+    <div class="col-8">
+  
+      <form action="/submit-recepie" enctype="multipart/form-data" method="POST">
+      
+        <div class="row g-3">
+  
+          <div class="col-12">
+            <label for="name" class="form-label">Nazwa</label>
+            <input type="text" name="name" id="name" class="form-control" required>
+          </div>
+          
+          <div class="col-12">
+            <label for="description" class="form-label">Opis</label>
+            <textarea name="description" id="description" class="form-control" cols="30" rows="4"></textarea>
+          </div>
+  
+          <div class="col-12">
+            <label for="name" class="form-label">Skladniki</label><br>
+            <small>Przyklad: Sol</small>
+            <div class="ingredientList">
+              <div class="ingredeintDiv mb-1">
+                <input type="text" name="ingredients" class="form-control">
+              </div>
+            </div>
+          </div>
+  
+          <div class="col-12">
+            <button type="button" class="btn btn-outline-primary" id="addIngredientsBtn">+ Skladnik</button>
+          </div>
+  
+  
+          <div class="col-12">
+            <label for="image">Zdjecie</label>
+            <input type="file" class="form-control" name="image" accept="image/*">
+          </div>
+  
+          <div class="col-12">
+            <button type="submit" class="btn btn-primary">Wyslij</button>
+          </div>
+  
+        </div>
+      
+      </form>
+  
+    </div>
+  </div>

@@ -1,0 +1,19 @@
+<h1 class="pb-4">Poznaj nasze Przepisy</h1>
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="/">Strona Glowna</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Przepisy</a></li>
+    </ol>
+</nav>
+<div class="row row-cols-2 row-cols-lg-5 g-2 g-lg-3 mb-4">
+<% if(recipes != '') { %>
+    <% recipes.forEach(function(recipe, index) { %>
+        <a href="/recipe/<%- recipe.id %>" class="col text-center recipe__link">
+        <div class="category__img shadow">
+            <img src="upload/<%- recipe.image %>" class="recipe__img" alt="<%- recipe.name %>" loading="lazy">
+        </div>
+        <div class="pt-1"><%- recipe.name %></div>
+        </a>
+        <% }) %>
+        <% } %>
+    </div>
